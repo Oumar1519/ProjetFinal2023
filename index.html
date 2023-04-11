@@ -40,16 +40,18 @@
     <form class="border m-5 p-5 mx-lg-auto w-50" action="index.html">
         <h2>Connecter vous</h2>
         <div class="mb-3">
-            <label for="mail" class="form-label">Courriel</label>
+            <label for="mail" class="form-label">Courriel <sup>*</sup></label>
             <input type="email" class="form-control" id="mail" name="mail" required>
         </div>
         <div class="mb-3">
-            <label for="motdepas" class="form-label">Mot de passe:</label>
+            <label for="motdepas" class="form-label">Mot de passe: <sup>*</sup></label>
             <input type="password" class="form-control" id="motdepas" name="motdepas" required>
             <p class="alert alert-danger d-none my-2" role="alert"></p>
         </div>
         <button type="submit" class="btn btn-primary">Connection</button>
+        <p class="text-danger">Les champs suivis d'un * sont obligatoires</p>
     </form>
+
 </main>
 <footer class="fixed-bottom py-3">
     <div class="container-fluid text-white text-center">

@@ -47,28 +47,28 @@
                     <input type="text" class="form-control" name="id" id="id">
                 </div>
                 <div class="mb-3">
-                    <label for="marque" class="form-label">Marque:</label>
+                    <label for="marque" class="form-label">Marque:<sup>*</sup></label>
                     <input type="text" class="form-control" name="marque" id="marque" required>
                 </div>
                 <div class="mb-3">
-                    <label for="modele" class="form-label">Model:</label>
+                    <label for="modele" class="form-label">Model:<sup>*</sup></label>
                     <input type="text" class="form-control" name="medele" id="modele" required minlength="5">
                 </div>
                 <div class="mb-3">
-                    <label for="annee" class="form-label">Année:</label>
+                    <label for="annee" class="form-label">Année:<sup>*</sup></label>
                     <input type="text" class="form-control" name="annee" id="annee" required>
                 </div>
                 <div class="mb-3">
-                    <label for="prix" class="form-label">Prix:</label>
+                    <label for="prix" class="form-label">Prix:<sup>*</sup></label>
                     <input type="text" class="form-control" name="prix" id="prix" required>
                 </div>
                 <div class="mb-3">
-                    <label for="codeVoiture" class="form-label">Code voiture:</label>
-                    <textarea name="codeVoiture" id="codeVoiture" class="form-control"></textarea>
+                    <label for="codeVoiture" class="form-label">Code voiture:<sup>*</sup></label>
+                    <textarea name="codeVoiture" id="codeVoiture" class="form-control" required></textarea>
                     <p class="alert alert-danger d-none my-2" role="alert"></p>
                 </div>
                 <div class="mb-3">
-                    <label for="urlImage" class="form-label">Image:</label>
+                    <label for="urlImage" class="form-label">Image:<sup>*</sup></label>
                     <input type="url" class="form-control" name="urlImage" id="urlImage" required>
                 </div>
                 <div class="mb-3 col-md justify-content-center mx-4">
@@ -76,7 +76,7 @@
                     <input type="button" class="btn text-info btn-secondary mb-2" value="Modifier" onclick="modifierVoiture()">
                     <input type="button" class="btn text-info btn-secondary mb-2" value="Supprimer" onclick="supprimerVoiture()">
                 </div>
-
+                <p class="text-danger">Les champs suivis d'un * sont obligatoires</p>
             </form>
         </section>
         <section class="col-sm">
