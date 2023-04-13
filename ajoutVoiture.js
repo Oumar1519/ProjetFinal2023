@@ -57,6 +57,7 @@ $('form').submit(function (event) {
     </ul>
 </div>
 `);
+        localStorage.setItem('voitures', JSON.stringify(data));
     })
 
     event.preventDefault();
