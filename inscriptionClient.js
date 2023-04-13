@@ -1,4 +1,4 @@
-//recuperer les donnees du local storage
+//recuperer les donnees
 let voitures=JSON.parse(localStorage.getItem('voitures'));
 $('#marque').val(voitures.marque);
 $('#modele').val(voitures.modele);
@@ -15,7 +15,7 @@ if(voitures!=null){
 function afficherVoiture(){
     $.getJSON('https://641b4a829b82ded29d4f1c4e.mockapi.io/voitures')
         .done(function (voitures) {
-            const liste=$('#cdVoiture');
+            const liste=$('#model');
             liste.empty();
             voitures.forEach(function (voiture) {
                 liste.append(`
@@ -34,12 +34,13 @@ function afficherVoiture(){
  * @param cdVoiture
  * @constructor
  */
-function Client(nom,prenom,courriel,refClient,cdVoiture){
+function Client(nom,prenom,courriel,refClient,cdVoiture,tel){
     this.nom=nom;
     this.prenom=prenom;
     this.courriel=courriel;
     this.refClient=refClient;
     this.cdVoiture=cdVoiture;
+    this.tel=tel;
 };
 
 /**
@@ -63,14 +64,23 @@ $('form').submit(function (event) {
     let prenom=$("#prenom").val();
     let courriel=$("#mail").val();
     let refClient=$("#ref").val();
-    let cdVoiture=$("#cdVoiture").val();
-    $('p.alert').addClass('d-none');
-    const msg=$('#refClient + p.alert');
-    clientParticipe.ajouterClient(new Client(nom,prenom,courriel,refClient,cdVoiture));
+    let cdVoiture=$("#model").val();
+    let tel=$("#telephone").val();
+    clientParticipe.ajouterClient(new Client(nom,prenom,courriel,refClient,cdVoiture,tel));
     afficherClient();
+    localStorage.setItem('client',JSON.stringify(clientParticipe));
     //envoi du mail au client apres soumission du formulaire
     window.location.href="mailto:?subject=Reservation&body"+courriel;
 })
+//recuperer les donnees du local storage
+let client=JSON.parse(localStorage.getItem('client'));
+$('#nom').val(client.nom);
+$('#prenom').val(client.prenom);
+$('#mail').val(client.courriel);
+$('#ref').val(client.refClient);
+$('#model').val(client.cdVoiture);
+$('#telephone').val(client.tel);
+
 
 /**
  * fonction pour afficher les clients
@@ -82,13 +92,13 @@ function afficherClient(){
         liste.append(`
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">${client.nom}</h5>
+        <h5 class="card-title">${client.nom},${client.prenom}</h5>
         <p id='car${client.refClient}' class="card-text">${client.refClient}</p>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">${client.cdVoiture}</li>
-        <li class="list-group-item">${client.prenom}</li>
         <li class="list-group-item">${client.courriel}</li>
+        <li class="list-group-item">${client.tel}</li>
     </ul>
 </div>
             `)

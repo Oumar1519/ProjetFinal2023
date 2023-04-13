@@ -44,25 +44,28 @@
     <h2 class="h3 mb-3">Inscription</h2>
     <form method="post" action="mailto:">
       <div class="mb-3" id="leCd">
-        <label for="cdVoiture" class="form-label d-inline-block">Code voiture</label>
-        <select name="cdVoiture" id="cdVoiture" class="form-control">
+        <label for="model" class="form-label d-inline-block">Model Voiture : <sup>*</sup></label>
+        <select name="model" id="model" class="form-control" required>
         </select>
       </div>
       <div class="mb-3">
-        <label for="nom" class="form-label">Nom du client :</label>
-        <input type="text" class="form-control" name="nom" id="nom">
+        <label for="nom" class="form-label">Nom du client : <sup>*</sup></label>
+        <input type="text" class="form-control" name="nom" id="nom" minlength="3" maxlength="20" required>
       </div>
       <div class="mb-3">
-        <label for="prenom" class="form-label">Prénom :</label>
-        <input type="text" class="form-control" name="prenom" id="prenom">
+        <label for="prenom" class="form-label">Prénom : <sup>*</sup></label>
+        <input type="text" class="form-control" name="prenom" id="prenom" minlength="3" maxlength="20" required>
+      </div>
+        <div class="mb-3">
+            <label for="telephone" class="form-label">Téléphone : <sup>*</sup></label>
+            <input type="tel" class="form-control" name="telephone" id="telephone" pattern="[0-9]{10}" required>
+      <div class="mb-3">
+        <label for="mail" class="form-label">Courriel :<sup>*</sup></label>
+        <input type="email" class="form-control" name="mail" id="mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
       </div>
       <div class="mb-3">
-        <label for="mail" class="form-label">Courriel :</label>
-        <input type="email" class="form-control" name="mail" id="mail">
-      </div>
-      <div class="mb-3">
-        <label for="ref" class="form-label">Réfférence client</label>
-        <input type="text" class="form-control" name="ref" id="ref">
+        <label for="ref" class="form-label">Réfférence client : <sup>*</sup></label>
+        <input type="text" class="form-control" name="ref" id="ref" pattern="[A-Z]{3}\d{2}" required>
       </div>
       <div class="mb-3">
         <button type="submit" class="btn btn-primary">Soumettre</button>
@@ -79,7 +82,7 @@
 
   </section>
 </main>
-<footer class="fixed-bottom py-3">
+<footer class="">
   <div class="container-fluid text-white text-center">
     <p class="p-3">© 2023 - Location de voiture</p>
   </div>
