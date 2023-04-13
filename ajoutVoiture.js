@@ -57,7 +57,15 @@ $('form').submit(function (event) {
     </ul>
 </div>
 `);
-        localStorage.setItem('voitures', JSON.stringify(data));
+        localStorage.setItem('voitures', JSON.stringify({
+            marque: $('#marque').val(),
+            modele: $('#modele').val(),
+            annee: $('#annee').val(),
+            prix: $('#prix').val(),
+            codeVoiture: $('#codeVoiture').val(),
+            image: $('#urlImage').val()
+
+        }));
     })
 
     event.preventDefault();
